@@ -9,7 +9,7 @@ const Logo: FC<LogoProps> = ({ logoSource, bootstrapNav }) => {
   if (bootstrapNav) {
     return (
       <Link className="navbar-brand" to="/">
-        <img src={logoSource} alt="Bolby" />
+        <img src={logoSource} alt="Toan" />
       </Link>
     );
   }
@@ -17,7 +17,7 @@ const Logo: FC<LogoProps> = ({ logoSource, bootstrapNav }) => {
   return (
     <div className="site-logo">
       <Link to="/">
-        <img src={logoSource} alt="Bolby" />
+        <img src={logoSource} alt="Toan" />
       </Link>
     </div>
   );

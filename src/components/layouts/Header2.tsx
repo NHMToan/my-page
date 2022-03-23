@@ -1,22 +1,9 @@
-import SNIcon from 'components/elements/Icon';
-import { FC } from 'react';
 import { Link } from 'react-scroll';
 import Logo from '../elements/Logo';
 
-interface HeaderProps {
-  light: any;
-  logoSource: any;
-  toggleMenu: any;
-  headerToggler: any;
-}
-const Header: FC<HeaderProps> = ({
-  light,
-  logoSource,
-  toggleMenu,
-  headerToggler,
-}) => {
+function Header2({ light, logoSource, toggleMenu, headerToggler }) {
   const handleClasses = () => {
-    let classes = 'desktop-header-1 d-flex align-items-start flex-column';
+    let classes = 'desktop-header-2 d-flex align-items-start flex-column';
     if (light & toggleMenu) {
       classes += ' light open';
     } else if (toggleMenu) {
@@ -27,7 +14,7 @@ const Header: FC<HeaderProps> = ({
     return classes;
   };
   const handleMobileClasses = () => {
-    let classes = 'mobile-header-1';
+    let classes = 'mobile-header-2';
     if (light & toggleMenu) {
       classes += ' light open';
     } else if (toggleMenu) {
@@ -61,8 +48,7 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <SNIcon icon="home" />
-                Home
+                <i className="icon-home"></i>
               </Link>
             </li>
             <li>
@@ -73,7 +59,7 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <i className="icon-user-following"></i>About
+                <i className="icon-user-following"></i>
               </Link>
             </li>
             <li>
@@ -84,7 +70,7 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <i className="icon-briefcase"></i>Services
+                <i className="icon-briefcase"></i>
               </Link>
             </li>
             <li>
@@ -95,7 +81,7 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <i className="icon-graduation"></i>Experience
+                <i className="icon-graduation"></i>
               </Link>
             </li>
             <li>
@@ -106,7 +92,7 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <i className="icon-layers"></i>Works
+                <i className="icon-layers"></i>
               </Link>
             </li>
             <li>
@@ -117,7 +103,7 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <i className="icon-note"></i>Blog
+                <i className="icon-note"></i>
               </Link>
             </li>
             <li>
@@ -128,7 +114,7 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <i className="icon-bubbles"></i>Contact
+                <i className="icon-bubbles"></i>
               </Link>
             </li>
           </ul>
@@ -142,6 +128,6 @@ const Header: FC<HeaderProps> = ({
       </header>
     </>
   );
-};
+}
 
-export default Header;
+export default Header2;

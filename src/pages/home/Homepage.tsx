@@ -14,10 +14,13 @@ import ReactCursorPosition from 'react-cursor-position';
 import { Element } from 'react-scroll';
 
 interface HomepageProps {}
+
 const Homepage: FC<HomepageProps> = () => {
+  document.body.classList.remove('dark');
+
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  const headerToggler = (e: any) => {
+  const headerToggler = (e) => {
     e.preventDefault();
     setToggleMenu(!toggleMenu);
   };
@@ -31,14 +34,15 @@ const Homepage: FC<HomepageProps> = () => {
   return (
     <>
       <Header
-        logoSource="/images/logo.svg"
+        light
+        logoSource="../../assets/images/logo-dark.svg"
         toggleMenu={toggleMenu}
         headerToggler={headerToggler}
       />
       <main className={toggleMenu ? 'content open' : 'content'}>
         <Element name="section-home">
           <ReactCursorPosition>
-            <Herosection />
+            <Herosection light />
           </ReactCursorPosition>
         </Element>
         <Element name="section-about">
