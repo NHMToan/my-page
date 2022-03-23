@@ -1,7 +1,7 @@
-import React from 'react';
+import SNIcon from 'components/elements/Icon';
 import { Link } from 'react-scroll';
 import Typed from 'react-typed';
-
+import './index.scss';
 function Herosection(props) {
   const { x, y } = props.position;
   const { height, width } = props.elementDimensions;
@@ -30,44 +30,30 @@ function Herosection(props) {
           <p>
             I'm a{' '}
             <Typed
-              strings={[
-                'UI/UX designer ',
-                'Front-End developer',
-                'Photography lover',
-              ]}
+              strings={['UI/UX designer ', 'Front-End developer']}
               typeSpeed={80}
               backSpeed={40}
               attr="value"
               loop
             >
-              <label value></label>
+              <label></label>
             </Typed>
           </p>
 
           <ul className="social-icons light list-inline mb-0 mt-4">
             <li className="list-inline-item">
               <a href="!#">
-                <i className="fab fa-instagram"></i>
+                <SNIcon icon={['fab', 'facebook']} />
               </a>
             </li>
             <li className="list-inline-item">
               <a href="!#">
-                <i className="fab fa-twitter"></i>
+                <SNIcon icon={['fab', 'github']} />
               </a>
             </li>
             <li className="list-inline-item">
               <a href="!#">
-                <i className="fab fa-behance"></i>
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="!#">
-                <i className="fab fa-dribbble"></i>
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="!#">
-                <i className="fab fa-pinterest-p"></i>
+                <SNIcon icon={['fab', 'instagram']} />
               </a>
             </li>
           </ul>

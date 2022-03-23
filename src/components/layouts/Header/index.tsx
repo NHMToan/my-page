@@ -1,10 +1,9 @@
 import SNIcon from 'components/elements/Icon';
 import { FC } from 'react';
 import { Link } from 'react-scroll';
-import Logo from '../elements/Logo';
-
+import Logo from '../../elements/Logo';
 interface HeaderProps {
-  light: any;
+  light: boolean;
   logoSource: any;
   toggleMenu: any;
   headerToggler: any;
@@ -17,7 +16,7 @@ const Header: FC<HeaderProps> = ({
 }) => {
   const handleClasses = () => {
     let classes = 'desktop-header-1 d-flex align-items-start flex-column';
-    if (light & toggleMenu) {
+    if (light && toggleMenu) {
       classes += ' light open';
     } else if (toggleMenu) {
       classes += ' open';
@@ -28,7 +27,7 @@ const Header: FC<HeaderProps> = ({
   };
   const handleMobileClasses = () => {
     let classes = 'mobile-header-1';
-    if (light & toggleMenu) {
+    if (light && toggleMenu) {
       classes += ' light open';
     } else if (toggleMenu) {
       classes += ' open';
@@ -61,7 +60,10 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <SNIcon icon="home" />
+                <SNIcon
+                  icon={['fas', 'house']}
+                  style={{ marginRight: 8, width: 14 }}
+                />
                 Home
               </Link>
             </li>
@@ -73,7 +75,11 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <i className="icon-user-following"></i>About
+                <SNIcon
+                  icon={['fas', 'user']}
+                  style={{ marginRight: 8, width: 14 }}
+                />
+                About
               </Link>
             </li>
             <li>
@@ -84,7 +90,11 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <i className="icon-briefcase"></i>Services
+                <SNIcon
+                  icon={['fas', 'briefcase']}
+                  style={{ marginRight: 8, width: 14 }}
+                />
+                Services
               </Link>
             </li>
             <li>
@@ -95,7 +105,11 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <i className="icon-graduation"></i>Experience
+                <SNIcon
+                  icon={['fas', 'graduation-cap']}
+                  style={{ marginRight: 8, width: 14 }}
+                />
+                Experience
               </Link>
             </li>
             <li>
@@ -106,18 +120,11 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <i className="icon-layers"></i>Works
-              </Link>
-            </li>
-            <li>
-              <Link
-                activeClass="active"
-                to="section-blogs"
-                spy={true}
-                smooth={true}
-                duration={500}
-              >
-                <i className="icon-note"></i>Blog
+                <SNIcon
+                  icon={['fas', 'layer-group']}
+                  style={{ marginRight: 8, width: 14 }}
+                />
+                Works
               </Link>
             </li>
             <li>
@@ -128,16 +135,18 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <i className="icon-bubbles"></i>Contact
+                <SNIcon
+                  icon={['fas', 'comment-alt-dots']}
+                  style={{ marginRight: 8, width: 14 }}
+                />
+                Contact
               </Link>
             </li>
           </ul>
         </nav>
 
         <div className="footer">
-          <span className="copyright">
-            &copy; {new Date().getFullYear()} Bolby Template.
-          </span>
+          <span className="copyright"></span>
         </div>
       </header>
     </>

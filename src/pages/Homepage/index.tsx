@@ -1,17 +1,13 @@
 import Header from 'components/layouts/Header';
-import About from 'components/sections/About';
-import Blogs from 'components/sections/Blogs';
-import Brandlogos from 'components/sections/Brandlogos';
 import Contact from 'components/sections/Contact';
 import Experiences from 'components/sections/Experiences';
-import Herosection from 'components/sections/Herosection';
-import Pricing from 'components/sections/Pricing';
 import Services from 'components/sections/Services';
-import Testimonials from 'components/sections/Testimonials';
 import Works from 'components/sections/Works';
 import { FC, useState } from 'react';
 import ReactCursorPosition from 'react-cursor-position';
 import { Element } from 'react-scroll';
+import About from './components/AboutSection';
+import Herosection from './components/HeroSection';
 
 interface HomepageProps {}
 
@@ -35,7 +31,7 @@ const Homepage: FC<HomepageProps> = () => {
     <>
       <Header
         light
-        logoSource="../../assets/images/logo-dark.svg"
+        logoSource="images/logo-dark.svg"
         toggleMenu={toggleMenu}
         headerToggler={headerToggler}
       />
@@ -56,18 +52,6 @@ const Homepage: FC<HomepageProps> = () => {
         </Element>
         <Element name="section-works">
           <Works />
-        </Element>
-        <Element name="section-pricing">
-          <Pricing />
-        </Element>
-        <Element name="section-testimoninal">
-          <Testimonials />
-        </Element>
-        <Element name="section-brandlogos">
-          <Brandlogos />
-        </Element>
-        <Element name="section-blogs">
-          <Blogs />
         </Element>
         <Element name="section-contact">
           <Contact />
