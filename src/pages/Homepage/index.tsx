@@ -1,13 +1,13 @@
 import Header from 'components/layouts/Header';
-import Contact from 'components/sections/Contact';
-import Experiences from 'components/sections/Experiences';
-import Services from 'components/sections/Services';
-import Works from 'components/sections/Works';
 import { FC, useState } from 'react';
 import ReactCursorPosition from 'react-cursor-position';
 import { Element } from 'react-scroll';
 import About from './components/AboutSection';
+import Contact from './components/Contact';
+import Experiences from './components/Experiences';
 import Herosection from './components/HeroSection';
+import Quotes from './components/Quotes';
+import Works from './components/Works';
 
 interface HomepageProps {}
 
@@ -29,12 +29,7 @@ const Homepage: FC<HomepageProps> = () => {
 
   return (
     <>
-      <Header
-        light
-        logoSource="images/logo-dark.svg"
-        toggleMenu={toggleMenu}
-        headerToggler={headerToggler}
-      />
+      <Header light toggleMenu={toggleMenu} headerToggler={headerToggler} />
       <main className={toggleMenu ? 'content open' : 'content'}>
         <Element name="section-home">
           <ReactCursorPosition>
@@ -44,14 +39,14 @@ const Homepage: FC<HomepageProps> = () => {
         <Element name="section-about">
           <About />
         </Element>
-        <Element name="section-services">
-          <Services />
-        </Element>
         <Element name="section-experiences">
           <Experiences />
         </Element>
         <Element name="section-works">
           <Works />
+        </Element>
+        <Element name="section-quotes">
+          <Quotes />
         </Element>
         <Element name="section-contact">
           <Contact />

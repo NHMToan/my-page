@@ -36,7 +36,9 @@ const Skill: FC<SkillProps> = ({ progress, isVisible }) => {
   return (
     <div className="skill-item">
       <div className="skill-info clearfix">
-        <h4 className="float-left mb-3 mt-0">{title}</h4>
+        <h4 className="float-left mt-0" style={{ marginBottom: 4, margin: 0 }}>
+          {title}
+        </h4>
         <span className="float-right">{percantage}%</span>
       </div>
       <div className="progress">{progressQuery()}</div>

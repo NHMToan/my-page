@@ -5,8 +5,15 @@ interface AvatarProps {
   alt?: string;
   size?: number | 'large' | 'small' | 'default';
   style?: CSSProperties;
+  className?: string;
 }
-const Avatar: FC<AvatarProps> = ({ src, alt, size = 'default', style }) => {
+const Avatar: FC<AvatarProps> = ({
+  src,
+  alt,
+  size = 'default',
+  style,
+  className,
+}) => {
   const handleSize = () => {
     if (typeof size === 'number') {
       return { width: size, height: size, lineHeight: size };
@@ -23,7 +30,7 @@ const Avatar: FC<AvatarProps> = ({ src, alt, size = 'default', style }) => {
   };
   return (
     <span
-      className="t-avatar t-avatar-circle t-avatar-image"
+      className={'t-avatar t-avatar-circle t-avatar-image ' + className}
       style={{ ...style, ...handleSize() }}
     >
       <img src={src} alt={alt || '#'}></img>

@@ -1,61 +1,62 @@
-import Avatar from 'components/elements/Avatar';
-import Counter from 'components/elements/Counter';
+import Avatar from 'components/Avatar';
 import Pagetitle from 'components/elements/Pagetitle';
 import Skill from 'components/elements/Skill';
+import Skills, { SkillsItemData } from 'components/elements/Skills';
 import TrackVisibility from 'react-on-screen';
 
 const aboutContent = {
   name: 'Toan',
   avatarImage: '/images/avatar.jpeg',
   content:
-    'I am Toan, web developer from Ho Chi Minh city, Vietnam. I have rich experience in web site design and building and customization, also I am good at WordPress.',
+    'I am Toan, web developer from Ho Chi Minh city, Vietnam. I have rich experience in website design and building and customization, also I am able to work as back-end developer with NodeJs, Pyhton(Django).',
 };
 
 const progressData = [
   {
     id: 1,
-    title: 'Development',
-    percantage: 85,
+    title: 'Front-end Development',
+    percantage: 90,
     progressColor: '#FFD15C',
   },
   {
     id: 2,
     title: 'UI/UX Design',
-    percantage: 95,
+    percantage: 80,
     progressColor: '#FF4C60',
   },
   {
     id: 3,
-    title: 'Photography',
+    title: 'Back-end Development',
     percantage: 70,
-    progressColor: '#6C6CE5',
+    progressColor: '#1890ff',
   },
 ];
 
-const counterData = [
+const counterData: SkillsItemData[] = [
   {
     id: 1,
-    title: 'Projects completed',
-    count: 198,
-    icon: 'icon-fire',
+    title: 'Front-end',
+    description:
+      'Javascript(React, jQuery), HTML, CSS(SASS,SCSS,LESS), Bootstrap, Ant design, Material UI, Google APIs, One-signal,Firebase, Socket.io',
+    icon: 'browser',
   },
   {
     id: 2,
-    title: 'Cup of coffee',
-    count: 5670,
-    icon: 'icon-cup',
+    title: 'Back-end',
+    description: 'Python (Django), NodeJs',
+    icon: 'cogs',
   },
   {
     id: 3,
-    title: 'Satisfied clients',
-    count: 427,
-    icon: 'icon-people',
+    title: 'Tools',
+    description: 'Git, npm',
+    icon: 'tools',
   },
   {
     id: 4,
-    title: 'Nominees winner',
-    count: 35,
-    icon: 'icon-badge',
+    title: 'Other',
+    description: 'Bitbucket, Jira, Photoshop, Mockflow,...',
+    icon: 'toolbox',
   },
 ];
 
@@ -108,10 +109,10 @@ function About() {
         </div>
         <div className="spacer" data-height="70"></div>
         <div className="row fix-spacing">
-          {counterData.map((counter) => (
-            <div key={counter.id} className="col-md-3 col-sm-6">
+          {counterData.map((skill) => (
+            <div key={skill.id} className="col-md-6 col-sm-6">
               <TrackVisibility once>
-                <Counter counterItem={counter} />
+                <Skills skillsItem={skill} />
               </TrackVisibility>
             </div>
           ))}

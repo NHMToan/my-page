@@ -6,6 +6,7 @@ interface LogoProps {
   bootstrapNav?: boolean;
 }
 const Logo: FC<LogoProps> = ({ logoSource, bootstrapNav }) => {
+  if (!logoSource) return null;
   if (bootstrapNav) {
     return (
       <Link className="navbar-brand" to="/">

@@ -1,4 +1,5 @@
-import SNIcon from 'components/elements/Icon';
+import Avatar from 'components/Avatar';
+import SNIcon from 'components/Icon';
 import { Link } from 'react-scroll';
 import Typed from 'react-typed';
 import './index.scss';
@@ -24,8 +25,12 @@ function Herosection(props) {
     >
       <div className="container">
         <div className="intro">
-          <img src="images/avatar-1.svg" alt="Bolby" className="mb-4" />
-
+          <Avatar
+            src="images/avatar.jpeg"
+            alt="Toan"
+            className="mb-4"
+            size={120}
+          />
           <h1 className="mb-2 mt-0">Nguyen Toan</h1>
           <p>
             I'm a{' '}

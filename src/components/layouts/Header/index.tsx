@@ -1,12 +1,12 @@
-import SNIcon from 'components/elements/Icon';
+import SNIcon from 'components/Icon';
 import { FC } from 'react';
 import { Link } from 'react-scroll';
 import Logo from '../../elements/Logo';
 interface HeaderProps {
-  light: boolean;
-  logoSource: any;
-  toggleMenu: any;
-  headerToggler: any;
+  light?: boolean;
+  logoSource?: any;
+  toggleMenu?: any;
+  headerToggler?: any;
 }
 const Header: FC<HeaderProps> = ({
   light,
@@ -62,7 +62,7 @@ const Header: FC<HeaderProps> = ({
               >
                 <SNIcon
                   icon={['fas', 'house']}
-                  style={{ marginRight: 8, width: 14 }}
+                  style={{ marginRight: 10, width: 14 }}
                 />
                 Home
               </Link>
@@ -77,12 +77,12 @@ const Header: FC<HeaderProps> = ({
               >
                 <SNIcon
                   icon={['fas', 'user']}
-                  style={{ marginRight: 8, width: 14 }}
+                  style={{ marginRight: 10, width: 14 }}
                 />
                 About
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 activeClass="active"
                 to="section-services"
@@ -96,7 +96,7 @@ const Header: FC<HeaderProps> = ({
                 />
                 Services
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
                 activeClass="active"
@@ -107,7 +107,7 @@ const Header: FC<HeaderProps> = ({
               >
                 <SNIcon
                   icon={['fas', 'graduation-cap']}
-                  style={{ marginRight: 8, width: 14 }}
+                  style={{ marginRight: 10, width: 14 }}
                 />
                 Experience
               </Link>
@@ -122,9 +122,24 @@ const Header: FC<HeaderProps> = ({
               >
                 <SNIcon
                   icon={['fas', 'layer-group']}
-                  style={{ marginRight: 8, width: 14 }}
+                  style={{ marginRight: 10, width: 14 }}
                 />
                 Works
+              </Link>
+            </li>
+            <li>
+              <Link
+                activeClass="active"
+                to="section-quotes"
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                <SNIcon
+                  icon={['fas', 'bookmark']}
+                  style={{ marginRight: 10, width: 14 }}
+                />
+                Quotes
               </Link>
             </li>
             <li>
@@ -137,7 +152,7 @@ const Header: FC<HeaderProps> = ({
               >
                 <SNIcon
                   icon={['fas', 'comment-alt-dots']}
-                  style={{ marginRight: 8, width: 14 }}
+                  style={{ marginRight: 10, width: 14 }}
                 />
                 Contact
               </Link>

@@ -1,3 +1,4 @@
+import SNIcon from 'components/Icon';
 import FsLightbox from 'fslightbox-react';
 import { useState } from 'react';
 
@@ -13,26 +14,14 @@ function Portfolio({ portfolio }) {
   };
 
   const handleIcon = () => {
-    if (link) {
-      return <i className="icon-link"></i>;
-    } else if (popupLink) {
-      if (popupLink.length > 1) {
-        if (popupLink.toString().match(/youtube/g)) {
-          return <i className="icon-camrecorder"></i>;
-        }
-        return <i className="icon-picture"></i>;
-      } else if (popupLink.toString().match(/youtube/g)) {
-        return <i className="icon-camrecorder"></i>;
-      } else {
-        return <i className="icon-magnifier-add"></i>;
-      }
-    }
-    return <i className="icon-magnifier-add"></i>;
+    return <SNIcon icon="search" />;
   };
   return (
     <>
       <a
         href={link ? link : '!#'}
+        target="_blank"
+        rel="noopener noreferrer"
         className="work-image"
         onClick={handleLightbox}
       >
