@@ -1,5 +1,6 @@
+import emailjs from '@emailjs/browser';
 import Pagetitle from 'components/elements/Pagetitle';
-import { FC, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import ScrollAnimation from 'react-animate-on-scroll';
 
 interface ContactProps {}
@@ -10,9 +11,17 @@ const Contact: FC<ContactProps> = () => {
     subject: '',
     message: '',
   });
-
+  const resetFormData = () => {
+    setFormdata({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    });
+  };
   const [error, setError] = useState(false);
   const [message, setMessage] = useState('');
+  const form = useRef<HTMLFormElement>();
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -30,7 +39,25 @@ const Contact: FC<ContactProps> = () => {
       setMessage('Message is required');
     } else {
       setError(false);
-      setMessage('You message has been sent!!!');
+      setMessage('Message sending...');
+      emailjs
+        .sendForm(
+          'service_2ytk8xr',
+          'template_ycdxltr',
+          form.current,
+          'qmxVxUm7lPm2SKWQc'
+        )
+        .then(
+          (result) => {
+            setError(false);
+            setMessage('Message is sent!');
+            resetFormData();
+          },
+          (error) => {
+            setError(true);
+            setMessage('Sending failed!');
+          }
+        );
     }
   };
 
@@ -84,6 +111,7 @@ const Contact: FC<ContactProps> = () => {
               id="contact-form"
               className="contact-form mt-6"
               onSubmit={submitHandler}
+              ref={form}
             >
               <div className="row">
                 <div className="column col-md-6">

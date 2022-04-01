@@ -60,10 +60,7 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <SNIcon
-                  icon={['fas', 'house']}
-                  style={{ marginRight: 10, width: 14 }}
-                />
+                <SNIcon icon={['far', 'house']} />
                 Home
               </Link>
             </li>
@@ -75,10 +72,7 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <SNIcon
-                  icon={['fas', 'user']}
-                  style={{ marginRight: 10, width: 14 }}
-                />
+                <SNIcon icon={['far', 'user']} />
                 About
               </Link>
             </li>
@@ -105,11 +99,20 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <SNIcon
-                  icon={['fas', 'graduation-cap']}
-                  style={{ marginRight: 10, width: 14 }}
-                />
+                <SNIcon icon={['far', 'graduation-cap']} />
                 Experience
+              </Link>
+            </li>
+            <li>
+              <Link
+                activeClass="active"
+                to="section-certificates"
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                <SNIcon icon={['far', 'certificate']} />
+                Certificates
               </Link>
             </li>
             <li>
@@ -120,11 +123,8 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <SNIcon
-                  icon={['fas', 'layer-group']}
-                  style={{ marginRight: 10, width: 14 }}
-                />
-                Works
+                <SNIcon icon={['far', 'briefcase']} />
+                Recent Works
               </Link>
             </li>
             <li>
@@ -135,10 +135,7 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <SNIcon
-                  icon={['fas', 'bookmark']}
-                  style={{ marginRight: 10, width: 14 }}
-                />
+                <SNIcon icon={['far', 'bookmark']} />
                 Quotes
               </Link>
             </li>
@@ -150,10 +147,7 @@ const Header: FC<HeaderProps> = ({
                 smooth={true}
                 duration={500}
               >
-                <SNIcon
-                  icon={['fas', 'comment-alt-dots']}
-                  style={{ marginRight: 10, width: 14 }}
-                />
+                <SNIcon icon={['far', 'comment-alt-dots']} />
                 Contact
               </Link>
             </li>

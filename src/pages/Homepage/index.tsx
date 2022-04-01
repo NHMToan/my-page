@@ -3,6 +3,7 @@ import { FC, useState } from 'react';
 import ReactCursorPosition from 'react-cursor-position';
 import { Element } from 'react-scroll';
 import About from './components/AboutSection';
+import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Experiences from './components/Experiences';
 import Herosection from './components/HeroSection';
@@ -41,6 +42,9 @@ const Homepage: FC<HomepageProps> = () => {
         </Element>
         <Element name="section-experiences">
           <Experiences />
+        </Element>
+        <Element name="section-certificates">
+          <Certificates />
         </Element>
         <Element name="section-works">
           <Works />

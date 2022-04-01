@@ -1,35 +1,35 @@
-import React, { useState } from "react";
-import ScrollAnimation from "react-animate-on-scroll";
-import Pagetitle from "../elements/Pagetitle";
+import React, { useState } from 'react';
+import ScrollAnimation from 'react-animate-on-scroll';
+import Pagetitle from '../elements/Pagetitle';
 
 function Contact() {
   const [formdata, setFormdata] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
   });
 
   const [error, setError] = useState(false);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
 
   const submitHandler = (event) => {
     event.preventDefault();
     if (!formdata.name) {
       setError(true);
-      setMessage("Name is required");
+      setMessage('Name is required');
     } else if (!formdata.email) {
       setError(true);
-      setMessage("Email is required");
+      setMessage('Email is required');
     } else if (!formdata.subject) {
       setError(true);
-      setMessage("Subject is required");
+      setMessage('Subject is required');
     } else if (!formdata.message) {
       setError(true);
-      setMessage("Message is required");
+      setMessage('Message is required');
     } else {
       setError(false);
-      setMessage("You message has been sent!!!");
+      setMessage('You message has been sent!!!');
     }
   };
 
@@ -71,7 +71,7 @@ function Contact() {
                 animateOnce={true}
               >
                 <p>
-                  Don't like forms? Send me an{" "}
+                  Don't like forms? Send me an{' '}
                   <a href="mailto:name@example.com">email</a>. 👋
                 </p>
               </ScrollAnimation>
