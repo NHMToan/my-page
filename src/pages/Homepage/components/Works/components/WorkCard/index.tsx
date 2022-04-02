@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import ScrollAnimation from 'react-animate-on-scroll';
-import { Link } from 'react-router-dom';
 
 export interface WorkData {
   id: number;
@@ -12,8 +11,9 @@ export interface WorkData {
 }
 interface WorkCardProps {
   data: WorkData;
+  onOpen?: any;
 }
-const WorkCard: FC<WorkCardProps> = ({ data }) => {
+const WorkCard: FC<WorkCardProps> = ({ data, onOpen }) => {
   if (!data) return null;
   const { title, job_title, image, date, country } = data;
   return (
@@ -27,13 +27,25 @@ const WorkCard: FC<WorkCardProps> = ({ data }) => {
           <a href="!#">
             <span className="category">{job_title}</span>
           </a>
-          <Link to={`#`}>
+          <div
+            onClick={() => {
+              if (onOpen) onOpen();
+            }}
+            style={{ cursor: 'pointer' }}
+          >
             <img src={image} alt="blog-title" />
-          </Link>
+          </div>
         </div>
         <div className="details">
           <h4 className="my-0 title">
-            <Link to={``}>{title}</Link>
+            <div
+              onClick={() => {
+                if (onOpen) onOpen();
+              }}
+              style={{ cursor: 'pointer' }}
+            >
+              {title}
+            </div>
           </h4>
           <ul className="list-inline meta mb-0 mt-2">
             <li className="list-inline-item">{date}</li>

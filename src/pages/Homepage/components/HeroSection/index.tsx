@@ -47,18 +47,30 @@ function Herosection(props) {
 
           <ul className="social-icons light list-inline mb-0 mt-4">
             <li className="list-inline-item">
-              <a href="!#">
+              <a
+                href="https://www.facebook.com/toan.nguyenhuynhminh/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <SNIcon icon={['fab', 'facebook']} />
               </a>
             </li>
             <li className="list-inline-item">
-              <a href="!#">
+              <a
+                href="https://github.com/NHMToan"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <SNIcon icon={['fab', 'github']} />
               </a>
             </li>
             <li className="list-inline-item">
-              <a href="!#">
-                <SNIcon icon={['fab', 'instagram']} />
+              <a
+                href="https://www.linkedin.com/in/toan-nguyen-a5b2501b0/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SNIcon icon={['fab', 'linkedin']} />
               </a>
             </li>
           </ul>

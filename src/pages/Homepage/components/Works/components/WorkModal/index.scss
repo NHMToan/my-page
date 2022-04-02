@@ -1,0 +1,9 @@
+.work-modal {
+  .work-modal-body {
+    overflow: hidden auto;
+    max-height: calc(100vh - 240px);
+  }
+}
+
+@media only screen and (max-width: 576px) {
+}

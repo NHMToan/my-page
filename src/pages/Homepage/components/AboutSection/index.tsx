@@ -37,7 +37,7 @@ const counterData: SkillsItemData[] = [
     id: 1,
     title: 'Front-end',
     description:
-      'Javascript(React, jQuery), HTML, CSS(SASS,SCSS,LESS), Bootstrap, Ant design, Material UI, Google APIs, One-signal,Firebase, Socket.io',
+      'Javascript(React, jQuery), Typescript, HTML, CSS(SASS,SCSS,LESS),...',
     icon: 'browser',
   },
   {
@@ -49,13 +49,13 @@ const counterData: SkillsItemData[] = [
   {
     id: 3,
     title: 'Tools',
-    description: 'Git, npm',
+    description: 'Jest, Redux, Flux, Graphql,...',
     icon: 'tools',
   },
   {
     id: 4,
     title: 'Other',
-    description: 'Bitbucket, Jira, Photoshop, Mockflow,...',
+    description: 'Babel, Webpack, npm, git,...',
     icon: 'toolbox',
   },
 ];
@@ -83,7 +83,11 @@ function About() {
                 <div className="col-md-6">
                   <p>{aboutContent.content}</p>
                   <div className="mt-3">
-                    <a href="!#" className="btn btn-default">
+                    <a
+                      href="/files/mycv.pdf"
+                      download
+                      className="btn btn-default"
+                    >
                       Download CV
                     </a>
                   </div>
