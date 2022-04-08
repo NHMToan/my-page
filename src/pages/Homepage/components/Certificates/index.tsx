@@ -17,6 +17,13 @@ const allData = [
     image: 'images/certificates/AlgoExpert_Certificate.jpg',
     popupLink: ['images/certificates/AlgoExpert_Certificate.jpg'],
   },
+  {
+    id: 2,
+    title: 'Front-end Expert Certificate',
+    category: 'Algo',
+    image: 'images/certificates/FrontendExpert_Certificate.jpg',
+    popupLink: ['images/certificates/FrontendExpert_Certificate.jpg'],
+  },
 ];
 interface CertificatesProps {}
 const Certificates: FC<CertificatesProps> = () => {
