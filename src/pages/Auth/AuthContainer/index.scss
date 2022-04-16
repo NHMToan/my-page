@@ -1,0 +1,24 @@
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: auto;
+  background: #f0f2f5;
+
+  .auth-content {
+    flex: 1 1;
+    padding: 32px 0;
+  }
+}
+@media (min-width: 768px) {
+  .auth-container {
+    background-image: url('../../../assets/images/auth-img.svg');
+    background-repeat: no-repeat;
+    background-position: center 110px;
+    background-size: 100%;
+
+    .auth-content {
+      padding: 32px 0 24px;
+    }
+  }
+}
