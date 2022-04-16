@@ -1,5 +1,5 @@
-import Header from 'components/layouts/Header';
-import { FC, useState } from 'react';
+import Header3 from 'layouts/Header3';
+import { FC } from 'react';
 import ReactCursorPosition from 'react-cursor-position';
 import { Element } from 'react-scroll';
 import About from './components/AboutSection';
@@ -15,23 +15,10 @@ interface HomepageProps {}
 const Homepage: FC<HomepageProps> = () => {
   document.body.classList.remove('dark');
 
-  const [toggleMenu, setToggleMenu] = useState(false);
-
-  const headerToggler = (e) => {
-    e.preventDefault();
-    setToggleMenu(!toggleMenu);
-  };
-
-  document.addEventListener('click', function (e: any) {
-    if (e.target.closest('.content')) {
-      setToggleMenu(false);
-    }
-  });
-
   return (
     <>
-      <Header light toggleMenu={toggleMenu} headerToggler={headerToggler} />
-      <main className={toggleMenu ? 'content open' : 'content'}>
+      <Header3 light />
+      <main className="content3">
         <Element name="section-home">
           <ReactCursorPosition>
             <Herosection light />
