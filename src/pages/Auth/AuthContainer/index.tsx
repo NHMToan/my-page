@@ -1,7 +1,8 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import './index.scss';
 interface AuthContainerProps {
   title?: string;
+  children?: ReactNode;
 }
 const AuthContainer: FC<AuthContainerProps> = ({ children }) => {
   return (

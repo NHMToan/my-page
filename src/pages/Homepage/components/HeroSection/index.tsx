@@ -4,7 +4,7 @@ import SNIcon from 'components/Icon';
 import { Link } from 'react-scroll';
 import Typed from 'react-typed';
 import './index.scss';
-function Herosection(props) {
+const Herosection = (props) => {
   const { x, y } = props.position;
   const { height, width } = props.elementDimensions;
   const activeParallax = (depth = 15) => {
@@ -14,7 +14,14 @@ function Herosection(props) {
       transform: `translate(${posX}px, ${posY}px)`,
     };
   };
-
+  const typingProps: any = {
+    strings: ['UI/UX designer ', 'Front-End developer'],
+    typeSpeed: 80,
+    backSpeed: 40,
+    attr: 'value',
+    loop: true,
+    children: <label></label>,
+  };
   return (
     <section
       id="home"
@@ -34,16 +41,7 @@ function Herosection(props) {
           />
           <h1 className="mb-2 mt-0">Nguyen Toan</h1>
           <p>
-            I'm a{' '}
-            <Typed
-              strings={['UI/UX designer ', 'Front-End developer']}
-              typeSpeed={80}
-              backSpeed={40}
-              attr="value"
-              loop
-            >
-              <label></label>
-            </Typed>
+            I'm a <Typed {...typingProps} />
           </p>
 
           <ul className="social-icons light list-inline mb-0 mt-4">
@@ -196,6 +194,6 @@ function Herosection(props) {
       </div>
     </section>
   );
-}
+};
 
 export default Herosection;

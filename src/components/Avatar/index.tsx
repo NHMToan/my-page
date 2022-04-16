@@ -14,7 +14,7 @@ const Avatar: FC<AvatarProps> = ({
   style,
   className,
 }) => {
-  const handleSize = () => {
+  const handleSize = (): any => {
     if (typeof size === 'number') {
       return { width: size, height: size, lineHeight: size };
     }

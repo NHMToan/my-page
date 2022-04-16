@@ -15,7 +15,7 @@ const works = [
     country: 'Sweaden',
   },
 ];
-const Works: FC<WorksProps> = ({}) => {
+const Works: FC<WorksProps> = () => {
   const [detailsVisible, setDetailsVisible] = useState<boolean>(false);
 
   return (

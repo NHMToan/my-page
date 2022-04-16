@@ -1,11 +1,16 @@
+import { useAuthContext } from 'contexts/AuthContext';
+import { useLogoutMutation } from 'generated/graphql';
 import { useState } from 'react';
-import { Link } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-scroll';
+import JWTManager from '../utils/jwt';
 interface Header3Props {
   light?: boolean;
 }
 function Header3({ light }: Header3Props) {
+  const { isAuthenticated, logoutClient } = useAuthContext();
   const [toggleNavbar, setToggleNavbar] = useState(false);
+  const [logoutServer] = useLogoutMutation();
 
   const handleMobilenav = (e) => {
     e.preventDefault();
@@ -17,7 +22,32 @@ function Header3({ light }: Header3Props) {
       setToggleNavbar(false);
     }
   });
+  const logout = async () => {
+    logoutClient();
 
+    await logoutServer({
+      variables: { userId: JWTManager.getUserId()?.toString() as string },
+    });
+  };
+  const headerAuthBtnRender = () => {
+    if (isAuthenticated)
+      return (
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            logout();
+          }}
+        >
+          Logout
+        </button>
+      );
+
+    return (
+      <RouterLink className="btn btn-primary" to="/login">
+        Login
+      </RouterLink>
+    );
+  };
   return (
     <header
       className={
@@ -136,11 +166,7 @@ function Header3({ light }: Header3Props) {
               </li>
             </ul>
           </div>
-          <div className="header-login-btn">
-            <RouterLink className="btn btn-primary" to="/login">
-              Login
-            </RouterLink>
-          </div>
+          <div className="header-login-btn">{headerAuthBtnRender()}</div>
         </nav>
       </div>
     </header>

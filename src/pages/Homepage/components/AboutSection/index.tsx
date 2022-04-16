@@ -60,7 +60,7 @@ const counterData: SkillsItemData[] = [
   },
 ];
 
-function About() {
+const About = () => {
   return (
     <section id="about">
       <div className="container">
@@ -124,6 +124,6 @@ function About() {
       </div>
     </section>
   );
-}
+};
 
 export default About;
