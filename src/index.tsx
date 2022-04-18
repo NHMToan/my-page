@@ -19,7 +19,10 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import JWTManager from './utils/jwt';
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql',
+  uri:
+    process.env.NODE_ENV === 'production'
+      ? 'https://damp-reaches-32805.herokuapp.com/graphql'
+      : 'http://localhost:4000/graphql',
   credentials: 'include',
 });
 

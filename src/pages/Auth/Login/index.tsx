@@ -1,20 +1,25 @@
 import { useAuthContext } from 'contexts/AuthContext';
 import { useLoginMutation } from 'generated/graphql';
-import { FC, FormEvent, useState } from 'react';
+import { FC, FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import JWTManager from '../../../utils/jwt';
 import AuthContainer from '../AuthContainer';
 import './index.scss';
 interface LoginProps {}
 const Login: FC<LoginProps> = (props) => {
-  const { setIsAuthenticated } = useAuthContext();
+  const { setIsAuthenticated, isAuthenticated } = useAuthContext();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [login] = useLoginMutation();
-
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('..');
+    }
+  }, [isAuthenticated]);
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
