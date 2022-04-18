@@ -16,7 +16,7 @@ const FAB: any = fab;
 library.add(FAS, FAR, FAL, FAB);
 function App() {
   const { checkAuth } = useAuthContext();
-
+  console.log('');
   useEffect(() => {
     const authenticate = async () => {
       await checkAuth();
