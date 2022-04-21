@@ -39,9 +39,12 @@ const JWTManager = () => {
 
   const getRefreshToken = async () => {
     try {
-      const response = await fetch('http://localhost:4000/refresh_token', {
-        credentials: 'include',
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}refresh_token`,
+        {
+          credentials: 'include',
+        }
+      );
       const data = (await response.json()) as {
         success: boolean;
         accessToken: string;

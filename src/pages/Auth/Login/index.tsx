@@ -14,6 +14,7 @@ const Login: FC<LoginProps> = (props) => {
   const [error, setError] = useState('');
   const [login] = useLoginMutation();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -23,6 +24,7 @@ const Login: FC<LoginProps> = (props) => {
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsLoading(true);
     const response = await login({
       variables: { loginInput: { username, password } },
     });
@@ -34,6 +36,7 @@ const Login: FC<LoginProps> = (props) => {
     } else {
       if (response.data?.login.message) setError(response.data.login.message);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -77,7 +80,7 @@ const Login: FC<LoginProps> = (props) => {
               style={{ width: '100%' }}
               type="submit"
             >
-              Login
+              {isLoading ? 'Login...' : 'Login'}
             </button>
           </form>
         </div>
