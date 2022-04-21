@@ -45,11 +45,12 @@ const JWTManager = () => {
           credentials: 'include',
         }
       );
+
       const data = (await response.json()) as {
         success: boolean;
         accessToken: string;
       };
-
+      console.log(await response.json());
       setToken(data.accessToken);
       return true;
     } catch (error) {
