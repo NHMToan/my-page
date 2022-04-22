@@ -50,7 +50,6 @@ const JWTManager = () => {
         success: boolean;
         accessToken: string;
       };
-      console.log(await response.json());
       setToken(data.accessToken);
       return true;
     } catch (error) {
