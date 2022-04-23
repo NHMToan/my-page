@@ -7,8 +7,8 @@ import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Experiences from './components/Experiences';
 import Herosection from './components/HeroSection';
+import PostsSection from './components/PostsSection';
 import Quotes from './components/Quotes';
-import Works from './components/Works';
 
 interface HomepageProps {}
 
@@ -18,7 +18,7 @@ const Homepage: FC<HomepageProps> = () => {
   return (
     <>
       <Header3 light />
-      <main className="content3">
+      <main className="content-3">
         <Element name="section-home">
           <ReactCursorPosition>
             <Herosection light />
@@ -33,8 +33,8 @@ const Homepage: FC<HomepageProps> = () => {
         <Element name="section-certificates">
           <Certificates />
         </Element>
-        <Element name="section-works">
-          <Works />
+        <Element name="section-posts">
+          <PostsSection />
         </Element>
         <Element name="section-quotes">
           <Quotes />

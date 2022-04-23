@@ -132,12 +132,12 @@ function Header3({ light }: Header3Props) {
                 <Link
                   activeClass="active"
                   className="nav-link"
-                  to="section-works"
+                  to="section-posts"
                   spy={true}
                   smooth={true}
                   duration={500}
                 >
-                  Recent Works
+                  Recent Posts
                 </Link>
               </li>
               <li className="nav-item">

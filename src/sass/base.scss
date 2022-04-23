@@ -334,8 +334,6 @@ pre {
 }
 
 .fix-spacing {
-  margin-top: -30px;
-
   & > [class^='col-'] {
     margin-top: 30px;
   }
@@ -357,4 +355,21 @@ pre {
 
 .p-30 {
   padding: 30px;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: underline;
+  &:hover {
+    color: $colorblue;
+  }
+}
+
+.pull-right {
+  float: right;
+}
+
+.i-row {
+  display: flex;
+  flex-flow: row wrap;
 }

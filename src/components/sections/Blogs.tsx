@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Blog from '../elements/Blog';
+import Blog from '../../pages/Posts/components/Post';
 import Pagetitle from '../elements/Pagetitle';
 
 const allBlogs = [

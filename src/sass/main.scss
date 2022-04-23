@@ -30,6 +30,16 @@ main.content-2 {
 }
 
 main.content-3 {
+  @include transition(0.3s);
+
+  &.open {
+    opacity: 0.8;
+    -webkit-transform: translateX(110px);
+    -moz-transform: translateX(110px);
+    -ms-transform: translateX(110px);
+    -o-transform: translateX(110px);
+    transform: translateX(110px);
+  }
 }
 
 section {

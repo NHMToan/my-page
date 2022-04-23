@@ -1,7 +1,6 @@
 import Pagetitle from 'components/elements/Pagetitle';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import WorkCard from './components/WorkCard';
-import WorkModal from './components/WorkModal';
 
 interface WorksProps {}
 
@@ -16,8 +15,6 @@ const works = [
   },
 ];
 const Works: FC<WorksProps> = () => {
-  const [detailsVisible, setDetailsVisible] = useState<boolean>(false);
-
   return (
     <section id="blog">
       <div className="container">
@@ -25,15 +22,11 @@ const Works: FC<WorksProps> = () => {
         <div className="row blog-wrapper">
           {works.map((work) => (
             <div className="col-md-4" key={work.id}>
-              <WorkCard data={work} onOpen={() => setDetailsVisible(true)} />
+              <WorkCard data={work} />
             </div>
           ))}
         </div>
       </div>
-      <WorkModal
-        isVisible={detailsVisible}
-        onClose={() => setDetailsVisible(false)}
-      />
     </section>
   );
 };

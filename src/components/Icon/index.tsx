@@ -1,11 +1,11 @@
 import {
-  FontAwesomeIcon as Icon,
+  FontAwesomeIcon,
   FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome';
 import { FC } from 'react';
 
 interface SNIconProps extends FontAwesomeIconProps {}
-const SNIcon: FC<SNIconProps> = ({
+const Icon: FC<SNIconProps> = ({
   color,
   style,
   icon,
@@ -17,7 +17,7 @@ const SNIcon: FC<SNIconProps> = ({
 
   if (typeof icon === 'string')
     return (
-      <Icon
+      <FontAwesomeIcon
         {...props}
         className={`sn-icon ${className || ''}`}
         icon={['far', icon]}
@@ -27,7 +27,7 @@ const SNIcon: FC<SNIconProps> = ({
     );
 
   return (
-    <Icon
+    <FontAwesomeIcon
       {...props}
       className={`${className || ''}`}
       icon={icon}
@@ -36,4 +36,4 @@ const SNIcon: FC<SNIconProps> = ({
     />
   );
 };
-export default SNIcon;
+export default Icon;

@@ -477,6 +477,8 @@ header.mobile-header-2 {
 
   .header-login-btn {
     float: right;
+    display: flex;
+    gap: 8px;
   }
   .navbar {
     padding: 0;
