@@ -1,7 +1,6 @@
 import Header3 from 'layouts/Header3';
 import { FC } from 'react';
 import ReactCursorPosition from 'react-cursor-position';
-import { Element } from 'react-scroll';
 import About from './components/AboutSection';
 import Certificates from './components/Certificates';
 import Contact from './components/Contact';
@@ -19,29 +18,29 @@ const Homepage: FC<HomepageProps> = () => {
     <>
       <Header3 light />
       <main className="content-3">
-        <Element name="section-home">
+        <div id="section-home">
           <ReactCursorPosition>
             <Herosection light />
           </ReactCursorPosition>
-        </Element>
-        <Element name="section-about">
+        </div>
+        <div id="section-about">
           <About />
-        </Element>
-        <Element name="section-experiences">
+        </div>
+        <div id="section-experiences">
           <Experiences />
-        </Element>
-        <Element name="section-certificates">
+        </div>
+        <div id="section-certificates">
           <Certificates />
-        </Element>
-        <Element name="section-posts">
+        </div>
+        <div id="section-posts">
           <PostsSection />
-        </Element>
-        <Element name="section-quotes">
+        </div>
+        <div id="section-quotes">
           <Quotes />
-        </Element>
-        <Element name="section-contact">
+        </div>
+        <div id="section-contact">
           <Contact />
-        </Element>
+        </div>
         <div className="spacer" data-height="96"></div>
       </main>
     </>

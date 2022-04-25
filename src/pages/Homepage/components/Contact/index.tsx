@@ -1,7 +1,6 @@
 import emailjs from '@emailjs/browser';
 import Pagetitle from 'components/elements/Pagetitle';
 import { FC, useRef, useState } from 'react';
-import ScrollAnimation from 'react-animate-on-scroll';
 
 interface ContactProps {}
 const Contact: FC<ContactProps> = () => {
@@ -86,23 +85,12 @@ const Contact: FC<ContactProps> = () => {
         <div className="row">
           <div className="col-md-4">
             <div className="contact-info">
-              <ScrollAnimation
-                animateIn="fadeInUp"
-                animateOut="fadeInOut"
-                animateOnce={true}
-              >
-                <h3>Let's talk about everything!</h3>
-              </ScrollAnimation>
-              <ScrollAnimation
-                animateIn="fadeInUp"
-                animateOut="fadeInOut"
-                animateOnce={true}
-              >
-                <p>
-                  Don't like forms? Send me an{' '}
-                  <a href="mailto:nhmtoan1509@gmail.com">email</a>. 👋
-                </p>
-              </ScrollAnimation>
+              <h3>Let's talk about everything!</h3>
+
+              <p>
+                Don't like forms? Send me an{' '}
+                <a href="mailto:nhmtoan1509@gmail.com">email</a>. 👋
+              </p>
             </div>
           </div>
 

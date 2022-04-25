@@ -1,6 +1,4 @@
-import { PostData } from './data.t';
-
-export const fakeBlogsData: PostData[] = [
+export const fakeBlogsData = [
   {
     id: 1,
     title: '5 Best App Development Tool for Your Project',

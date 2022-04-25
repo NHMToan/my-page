@@ -2,13 +2,12 @@ import Avatar from 'components/Avatar';
 import Pagetitle from 'components/elements/Pagetitle';
 import Skill from 'components/elements/Skill';
 import Skills, { SkillsItemData } from 'components/elements/Skills';
-import TrackVisibility from 'react-on-screen';
 
 const aboutContent = {
   name: 'Toan',
   avatarImage: '/images/avatar.jpeg',
   content:
-    'I am Toan, web developer from Ho Chi Minh city, Vietnam. I have rich experience in website design and building and customization, also I am able to work as back-end developer with NodeJs, Pyhton(Django).',
+    'I am Toan, web developer from Ho Chi Minh city, Vietnam. I have rich experience in website design and building and customization, also I am able to work as back-end developer with NodeJs, GraphQL.',
 };
 
 const progressData = [
@@ -98,13 +97,7 @@ const About = () => {
                 </div>
                 <div className="col-md-6">
                   {progressData.map((progress) => (
-                    <TrackVisibility
-                      once
-                      key={progress.id}
-                      className="progress-wrapper"
-                    >
-                      <Skill progress={progress} />
-                    </TrackVisibility>
+                    <Skill progress={progress} />
                   ))}
                 </div>
               </div>
@@ -115,9 +108,7 @@ const About = () => {
         <div className="row fix-spacing">
           {counterData.map((skill) => (
             <div key={skill.id} className="col-md-6 col-sm-6">
-              <TrackVisibility once>
-                <Skills skillsItem={skill} />
-              </TrackVisibility>
+              <Skills skillsItem={skill} />
             </div>
           ))}
         </div>

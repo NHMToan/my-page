@@ -168,3 +168,9 @@
   opacity: 1;
   cursor: not-allowed;
 }
+
+.i-button {
+  &.ant-btn {
+    border-radius: 4px;
+  }
+}

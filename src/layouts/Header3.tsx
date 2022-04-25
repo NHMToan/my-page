@@ -2,7 +2,6 @@ import { useAuthContext } from 'contexts/AuthContext';
 import { useLogoutMutation } from 'generated/graphql';
 import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Link } from 'react-scroll';
 import JWTManager from '../utils/jwt';
 interface Header3Props {
   light?: boolean;
@@ -22,6 +21,15 @@ function Header3({ light }: Header3Props) {
       setToggleNavbar(false);
     }
   });
+
+  const scrollToId = (divID) => {
+    var elmntToView = document.getElementById(divID);
+    elmntToView.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
+  };
   const logout = async () => {
     logoutClient();
 
@@ -81,88 +89,74 @@ function Header3({ light }: Header3Props) {
           >
             <ul className="navbar-nav ml-auto scrollspy">
               <li className="nav-item">
-                <Link
-                  activeClass="active"
+                <span
                   className="nav-link"
-                  to="section-home"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
+                  onClick={() => {
+                    scrollToId('section-home');
+                  }}
                 >
                   Home
-                </Link>
+                </span>
               </li>
               <li className="nav-item">
-                <Link
-                  activeClass="active"
+                <span
                   className="nav-link"
-                  to="section-about"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
+                  onClick={() => {
+                    scrollToId('section-about');
+                  }}
                 >
                   About
-                </Link>
+                </span>
               </li>
               <li>
-                <Link
-                  activeClass="active"
+                <span
                   className="nav-link"
-                  to="section-experiences"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
+                  onClick={() => {
+                    scrollToId('section-experiences');
+                  }}
                 >
                   Experience
-                </Link>
+                </span>
               </li>
               <li>
-                <Link
-                  activeClass="active"
+                <span
                   className="nav-link"
-                  to="section-certificates"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
+                  onClick={() => {
+                    scrollToId('section-certificates');
+                  }}
                 >
                   Certificates
-                </Link>
+                </span>
               </li>
               <li className="nav-item">
-                <Link
-                  activeClass="active"
+                <span
                   className="nav-link"
-                  to="section-posts"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
+                  onClick={() => {
+                    scrollToId('section-posts');
+                  }}
                 >
                   Recent Posts
-                </Link>
+                </span>
               </li>
               <li className="nav-item">
-                <Link
-                  activeClass="active"
+                <span
                   className="nav-link"
-                  to="section-quotes"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
+                  onClick={() => {
+                    scrollToId('section-quotes');
+                  }}
                 >
                   Quotes
-                </Link>
+                </span>
               </li>
               <li className="nav-item">
-                <Link
-                  activeClass="active"
+                <span
                   className="nav-link"
-                  to="section-contact"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
+                  onClick={() => {
+                    scrollToId('section-contact');
+                  }}
                 >
                   Contact
-                </Link>
+                </span>
               </li>
             </ul>
           </div>

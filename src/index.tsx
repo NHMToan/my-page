@@ -7,6 +7,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import 'animate.css/animate.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'braft-editor/dist/index.css';
+import 'braft-extensions/dist/code-highlighter.css';
 import AuthContextProvider from 'contexts/AuthContext';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -39,7 +41,6 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
 ReactDOM.render(
   <ApolloProvider client={client}>
     <AuthContextProvider>

@@ -1,9 +1,6 @@
-export interface PostData {
-  id: number;
-  title: string;
+import { Post } from 'generated/graphql';
+
+export interface PostData extends Post {
   image: string;
   filesource: string;
-  date: string;
-  author: string;
-  category: string;
 }

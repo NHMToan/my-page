@@ -1,0 +1,13 @@
+fragment postWithUserInfo on Post {
+  id
+  title
+  text
+  category
+  createdAt
+  updatedAt
+  user {
+    id
+    username
+    name
+  }
+}

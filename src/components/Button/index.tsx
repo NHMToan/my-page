@@ -26,6 +26,7 @@ const Button: FC<ButtonProps> = ({
   style,
   className,
   htmlType,
+  disabled,
 }) => {
   const handleClass = () => {
     let classes = 'btn';
@@ -71,6 +72,7 @@ const Button: FC<ButtonProps> = ({
       onClick={onClick}
       style={style}
       type={htmlType}
+      disabled={disabled}
     >
       {handleLabel()}
     </button>
