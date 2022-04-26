@@ -1,4 +1,4 @@
-import { Col, message, Popconfirm, Row, Skeleton, Space } from 'antd';
+import { Col, message, Popconfirm, Row, Skeleton, Space, Tag } from 'antd';
 import IButton from 'components/IButton';
 import Icon from 'components/Icon';
 import { AuthContext } from 'contexts/AuthContext';
@@ -11,7 +11,10 @@ interface PostDetailsProps {}
 const PostDetails: FC<PostDetailsProps> = (props) => {
   const { postID } = useParams();
   const { isAuthenticated } = useContext(AuthContext);
-  const { data, loading } = usePostQuery({ variables: { id: postID } });
+  const { data, loading } = usePostQuery({
+    variables: { id: postID },
+    fetchPolicy: 'no-cache',
+  });
   const navigate = useNavigate();
   const [deletePost] = useDeletePostMutation({ fetchPolicy: 'no-cache' });
 
@@ -31,7 +34,11 @@ const PostDetails: FC<PostDetailsProps> = (props) => {
         <Row style={{ marginBottom: 12 }}>
           <Col span={24}>
             <Space className="pull-right">
-              <IButton>
+              <IButton
+                onClick={() => {
+                  navigate(`/posts/edit/${postID}`);
+                }}
+              >
                 <Icon icon={['fas', 'pencil']} />
               </IButton>
               <Popconfirm
@@ -53,7 +60,7 @@ const PostDetails: FC<PostDetailsProps> = (props) => {
     if (loading) return <Skeleton />;
     if (!data) return null;
 
-    const { title, text } = data.post;
+    const { title, text, category } = data.post;
 
     return (
       <div className="blog-single shadow-dark p-30">
@@ -63,7 +70,12 @@ const PostDetails: FC<PostDetailsProps> = (props) => {
           alt="blog-title"
           style={{ width: '100%', height: 'auto' }}
         />
-        <h3>{title}</h3>
+        <Space>
+          <h3>{title}</h3>
+          <Tag color="#108ee9" style={{ borderRadius: 8 }}>
+            {category}
+          </Tag>
+        </Space>
         <div dangerouslySetInnerHTML={{ __html: text }} />
       </div>
     );

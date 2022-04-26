@@ -30,7 +30,10 @@ const LayoutPost = (props) => {
   };
   return (
     <>
-      <header className={'desktop-header-3 fixed-top light'}>
+      <header
+        className={'desktop-header-3 fixed-top light'}
+        style={{ zIndex: 1 }}
+      >
         <div className="container">
           <div className="header-login-btn">
             <Button label="Back to home" icon={['fas', 'house']} link="/" />

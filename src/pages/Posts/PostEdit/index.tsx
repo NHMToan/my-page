@@ -1,37 +1,47 @@
-import { Form, message } from 'antd';
+import { Form, message, Modal } from 'antd';
+import BraftEditor from 'braft-editor';
 import IButton from 'components/IButton';
 import ICustomSelect from 'components/IForm/ICustomSelect';
 import IFormItem from 'components/IForm/IFormItem';
 import IInput from 'components/IForm/IInput';
 import RichText from 'components/IForm/RichText';
+import Loading from 'components/Loading';
 import Panel from 'components/Panel';
-import { useCreatePostMutation } from 'generated/graphql';
+import { usePostQuery, useUpdatePostMutation } from 'generated/graphql';
 import { FC, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-interface PostFormProps {}
+interface PostEditProps {}
 
-const PostForm: FC<PostFormProps> = (props) => {
+const PostEdit: FC<PostEditProps> = (props) => {
   const navigate = useNavigate();
+  const { postID } = useParams();
+  const { data, loading } = usePostQuery({
+    variables: { id: postID },
+    fetchPolicy: 'no-cache',
+  });
 
   const [form] = Form.useForm();
   const [submiting, setSubmiting] = useState<boolean>(false);
-  const [createPost] = useCreatePostMutation({ fetchPolicy: 'no-cache' });
+  const [updatePost] = useUpdatePostMutation();
 
   const onSubmit = (values) => {
     setSubmiting(true);
-    createPost({
+    updatePost({
       variables: {
-        createPostInput: values,
+        updatePostInput: {
+          id: postID,
+          ...values,
+        },
       },
     })
       .then((response) => {
-        if (response?.data?.createPost?.success) {
-          message.success('Post added!');
-          navigate('/posts');
+        if (response?.data?.updatePost?.success) {
+          message.success('Post updated!');
+          navigate(`/posts/${postID}`);
         } else {
           message.error(
-            response?.data?.createPost?.message || 'Unexpected error!'
+            response?.data?.updatePost?.message || 'Unexpected error!'
           );
         }
 
@@ -44,6 +54,16 @@ const PostForm: FC<PostFormProps> = (props) => {
   };
 
   const renderForm = () => {
+    if (postID && loading) return <Loading />;
+    if (!data) return null;
+    const {
+      post: { title, text, category },
+    } = data;
+    const initialValues = {
+      title,
+      text,
+      category,
+    };
     return (
       <Form
         name="postForm"
@@ -56,6 +76,7 @@ const PostForm: FC<PostFormProps> = (props) => {
         onFinish={onSubmit}
         size="large"
         className="i-form"
+        initialValues={initialValues}
       >
         <IFormItem name="title" label="Title">
           <IInput />
@@ -71,6 +92,7 @@ const PostForm: FC<PostFormProps> = (props) => {
           onChange={(editorState) => {
             form.setFieldsValue({ text: editorState.toHTML() });
           }}
+          defaultValue={BraftEditor.createEditorState(text)}
         />
 
         <IFormItem noStyle name="text">
@@ -79,7 +101,15 @@ const PostForm: FC<PostFormProps> = (props) => {
         <IFormItem>
           <IButton
             type="primary"
-            onClick={form.submit}
+            onClick={() => {
+              Modal.confirm({
+                title: 'Update post',
+                content: 'Are you sure update this post?',
+                onOk() {
+                  form.submit();
+                },
+              });
+            }}
             className="pull-right"
             loading={submiting}
           >
@@ -116,4 +146,4 @@ const PostForm: FC<PostFormProps> = (props) => {
   );
 };
 
-export default PostForm;
+export default PostEdit;
