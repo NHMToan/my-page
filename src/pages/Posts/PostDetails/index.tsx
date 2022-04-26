@@ -63,7 +63,7 @@ const PostDetails: FC<PostDetailsProps> = (props) => {
     const { title, text, category } = data.post;
 
     return (
-      <div className="blog-single shadow-dark p-30">
+      <>
         {authActions()}
         <img
           src={defaultImg}
@@ -77,7 +77,7 @@ const PostDetails: FC<PostDetailsProps> = (props) => {
           </Tag>
         </Space>
         <div dangerouslySetInnerHTML={{ __html: text }} />
-      </div>
+      </>
     );
   };
   return (
@@ -99,7 +99,9 @@ const PostDetails: FC<PostDetailsProps> = (props) => {
       </div>
       <div className="spacer" data-height="30"></div>
       <div className="blog-page-section">
-        <div className="container">{renderDetails()}</div>
+        <div className="container">
+          <div className="blog-single shadow-dark p-30">{renderDetails()}</div>
+        </div>
       </div>
     </>
   );
